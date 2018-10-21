@@ -1,7 +1,7 @@
 #!/bin/bash -xve
 
 #required packages
-pip install --upgrade pip
+chmod -R +x /usr/lib/python2.7/dist-packages
 pip install catkin_pkg
 pip install empy
 pip install pyyaml
