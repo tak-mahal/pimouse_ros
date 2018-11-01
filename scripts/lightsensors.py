@@ -8,7 +8,7 @@ def get_freq():
         if f <= 0.0:
             raise Exception()
     except:
-        rospy.loggerr("value error: lightsensors_freq")
+        rospy.logerr("value error: lightsensors_freq")
         sys.exit(1)
 
     return f
