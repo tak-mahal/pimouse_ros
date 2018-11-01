@@ -11,7 +11,7 @@ class LightsensorTset(unittest, TestCase):
         rospy.Subscriber('/lightsensors', LightSensorValues, self.callback)
         self.values = LightSensorValues()
 
-    def callback(self.data):
+    def callback(self, data):
         self.cout += 1
         self.values = data
 
@@ -26,16 +26,16 @@ class LightsensorTset(unittest, TestCase):
 
     def test_node_exit(self):
         nodes = rosnode.get_node_names()
-        self.assertIN('/lightsensors',nodes, "node does not exit")
+        self.assertIN('/lightsensors', nodes, "node does not exit")
 
     def test_get_value(self):
-        rospy.set_param('lightsensors_freq',10)
+        rospy.set_param('lightsensors_freq', 10)
         time.sleep(2)
         with open("/dev/rtlightsensor0","w") as f:
             f.write("-1 0 123 4321\n")
 
         time.sleep(3)
-        self.assertFalse(self.cout == 0,"cannot subscribe the topic")
+        self.assertFalse(self.count == 0,"cannot subscribe the topic")
         self.check_values(4321,123,0,-1)
 
     def test_change_parameter(self):
