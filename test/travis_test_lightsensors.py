@@ -26,7 +26,7 @@ class LightsensorTest(unittest.TestCase):
 
     def test_node_exit(self):
         nodes = rosnode.get_node_names()
-        self.assertIN('/lightsensors', nodes, "node does not exit")
+        self.assertIn('/lightsensors', nodes, "node does not exit")
 
     def test_get_value(self):
         rospy.set_param('lightsensors_freq', 10)
