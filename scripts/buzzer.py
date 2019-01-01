@@ -18,7 +18,6 @@ def recv_buzzer(data):
 def exec_music(goal):
     r = MusicResult()
     fb = MusicFeedback()
-
     for i, f in enumerate(goal.freqs):
         fb.remaining_steps = len(goal.freqs) - i
         music.publish_feedback(fb)
